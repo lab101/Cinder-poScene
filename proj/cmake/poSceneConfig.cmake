@@ -4,20 +4,20 @@ if( NOT TARGET poScene )
 
 	
 	list( APPEND POSCENE_SOURCES
-		${POSCENE_SOURCE_PATH}/PoScene/DragAndDrop.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/DraggableView.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/EventCenter.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/Events.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/ImageView.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/MatrixSet.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/Scene.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/ShapeView.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/TextView.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/View.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/ViewController.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/ui/Button.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/ui/ButtonSet.cpp
-		${POSCENE_SOURCE_PATH}/PoScene/ui/ScrollView.cpp
+		${POSCENE_SOURCE_PATH}/poScene/DragAndDrop.cpp
+		${POSCENE_SOURCE_PATH}/poScene/DraggableView.cpp
+		${POSCENE_SOURCE_PATH}/poScene/EventCenter.cpp
+		${POSCENE_SOURCE_PATH}/poScene/Events.cpp
+		${POSCENE_SOURCE_PATH}/poScene/ImageView.cpp
+		${POSCENE_SOURCE_PATH}/poScene/MatrixSet.cpp
+		${POSCENE_SOURCE_PATH}/poScene/Scene.cpp
+		${POSCENE_SOURCE_PATH}/poScene/ShapeView.cpp
+		${POSCENE_SOURCE_PATH}/poScene/TextView.cpp
+		${POSCENE_SOURCE_PATH}/poScene/View.cpp
+		${POSCENE_SOURCE_PATH}/poScene/ViewController.cpp
+		${POSCENE_SOURCE_PATH}/poScene/ui/Button.cpp
+		${POSCENE_SOURCE_PATH}/poScene/ui/ButtonSet.cpp
+		${POSCENE_SOURCE_PATH}/poScene/ui/ScrollView.cpp
 	)
 	add_library( poScene ${POSCENE_SOURCES})
 
