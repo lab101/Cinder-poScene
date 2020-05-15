@@ -50,7 +50,7 @@ namespace po
 		}
 
 		ImageView::ImageView( ci::gl::TextureRef texture )
-			: mTexture( texture )
+			: mTexture( texture ),mIsFlipped(false)
 		{
 			if( mTextureBatch == nullptr ) {
 				ci::gl::GlslProgRef textureShader = ci::gl::getStockShader( ci::gl::ShaderDef().texture().color() );
@@ -69,8 +69,13 @@ namespace po
 				ci::gl::ScopedBlend blend( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE_MINUS_SRC_ALPHA );
 				ci::gl::ScopedTextureBind texBind( mTexture );
 				ci::gl::ScopedModelMatrix mModelView;
-				ci::gl::scale( ci::vec2( mTexture->getWidth(), mTexture->getHeight() ) );
-				mTextureBatch->draw();
+				if(mIsFlipped){
+                    ci::gl::translate(0,mTexture->getHeight());
+                    ci::gl::scale( ci::vec2( mTexture->getWidth(),- mTexture->getHeight() ) );
+                }else{
+                    ci::gl::scale( ci::vec2( mTexture->getWidth(), mTexture->getHeight() ) );
+                }
+					mTextureBatch->draw();
 			}
 		}
 

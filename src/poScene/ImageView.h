@@ -66,6 +66,7 @@ namespace po
 				//! Get the ci::gl::TextureRef
 				ci::gl::TextureRef getTexture() { return mTexture; }
 
+                void setFlipped(bool isFlipped){ mIsFlipped = isFlipped;}
 				//! Get the bounds of the Image
 				ci::Rectf getBounds();
 
@@ -74,7 +75,7 @@ namespace po
 
 			private:
 				ci::gl::TextureRef mTexture;
-
+				bool mIsFlipped;
 				static ci::gl::BatchRef mTextureBatch;
 		};
 
