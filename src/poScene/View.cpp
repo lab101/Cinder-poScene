@@ -92,8 +92,13 @@ namespace po
 			vec4 alphaValue     = texture( mask, c0 );
 
 			color.rgb     = rgbValue.rgb;
+          //  color.r = 1.0;
+          //  color.g *= .0-rgbValue.a;
+           // color.b *= .0-rgbValue.a;
+      //      color.a = min(rgbValue.a, alphaValue.a);
 			// same as GL_ONE, GL_ONE_MINUS_SRC_ALPHA
-			color.a       = alphaValue.a  + alphaValue.a * ( 1.0 - rgbValue.a );
+			//color.a       =  alphaValue.a  + alphaValue.a * ( 1.0 - rgbValue.a );
+			color.a = rgbValue.a * alphaValue.a;
 		}
 		                                           );
 
@@ -309,7 +314,7 @@ namespace po
 				//  Draw ourself into FBO
 				ci::gl::ScopedFramebuffer buffer( getScene()->getWindowFbo() );
 				ci::gl::clear( ci::ColorA::zero() );
-
+                //ci::gl::clear(ci::ColorA(0.21,0,0,0));
 				ci::gl::ScopedModelMatrix();
 				draw();
 			}
@@ -318,6 +323,7 @@ namespace po
 				//  Draw mask into Masking FBO (replace with Mask buffer in GLNext)
 				ci::gl::ScopedFramebuffer buffer( getScene()->getMaskFbo() );
 				ci::gl::clear( ci::ColorA::zero() );
+				//ci::gl::clear(ci::ColorA(0,0,0.1,0));
 
 				ci::gl::ScopedModelMatrix();
 				mMask->drawTree();
@@ -415,7 +421,7 @@ namespace po
 			ci::gl::setMatricesWindow( fbo->getWidth(), fbo->getHeight() );
 
 			//	Clear the FBO
-			ci::gl::clear( ci::ColorA( 0.f, 0.f, 0.f, 0.f ) );
+			ci::gl::clear( ci::ColorA( 0.f, 0.f, 0.f, 1.f ) );
 
 			//	Draw into the FBO
 			float curAppliedAlpha = mAppliedAlpha;

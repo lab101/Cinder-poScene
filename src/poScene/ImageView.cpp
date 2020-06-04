@@ -64,9 +64,12 @@ namespace po
 
 		void ImageView::draw()
 		{
+		    po::scene::View::draw();
+
 			if( mTexture ) {
 				ci::gl::ScopedColor fillColorScoped( ci::ColorA( getFillColor(), getAppliedAlpha() ) );
 				ci::gl::ScopedBlend blend( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, GL_ONE, GL_ONE_MINUS_SRC_ALPHA );
+				//ci::gl::enableAlphaBlending(false);
 				ci::gl::ScopedTextureBind texBind( mTexture );
 				ci::gl::ScopedModelMatrix mModelView;
 				if(mIsFlipped){
